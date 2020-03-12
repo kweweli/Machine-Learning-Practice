@@ -1,0 +1,11 @@
+﻿City,Age,Salary,Approved
+Apple Valley,25,65000,Yes
+Maplewood,30,81000,No
+Eagan,33,,Yes
+Apple Valley,39,100000,No
+Maplewood,28,91000,Yes
+Eagan,,66000,No
+Apple Valley,40,98000,Yes
+Maplewood,34,86000,Yes
+Eagan,25,70000,No
+Maplewood,24,62000,Yes

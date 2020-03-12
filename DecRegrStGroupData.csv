@@ -1,0 +1,15 @@
+outlook,temp,humidity,windy,hours_played
+rainy,hot,high,f,25
+rainy,hot,high,t,30
+overcast,hot,high,f,46
+sunny,mild,high,f,45
+sunny,cool,normal,f,52
+sunny,cool,normal,t,23
+overcast,cool,normal,t,43
+rainy,mild,high,f,35
+rainy,cool,normal,f,38
+sunny,mild,normal,f,46
+rainy,mild,normal,t,48
+overcast,mild,high,t,52
+overcast,hot,normal,f,44
+sunny,mild,high,t,30
