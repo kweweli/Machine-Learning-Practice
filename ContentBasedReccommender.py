@@ -1,44 +1,31 @@
 
 # coding: utf-8
 
-# In[87]:
-
-
+# import dependencies
 import numpy as np
 import pandas as pd
 
 # creating Artificial user movies and ratings
-movie = np.array(['Love', 'Hani goes to Kenya', 'Batman', 'Johnny be good'])
+movie  = np.array(['Love', 'Hani goes to Kenya', 'Batman', 'Johnny be good'])
 rating = np.array([8, 10, 5, 4])
-user = pd.DataFrame({'movie': movie, 'rating': rating})
-user
-
-
-# In[88]:
-
+user   = pd.DataFrame({'movie': movie, 'rating': rating})
+display(user)
 
 # onehot encoding of genre for the user's movies
-genreUser = {'Romance': [1,0,0,0], 'Action':[1,1,1,0], 'comedy':[0,1,1,1], 'Scifi':[0,1,1,0]} # oneHotEncoder for genre
-genreUser = pd.DataFrame(genreUser) # making genre a dataframe
+genreUser  = {'Romance': [1,0,0,0], 'Action':[1,1,1,0], 'comedy':[0,1,1,1], 'Scifi':[0,1,1,0]} # oneHotEncoder for genre
+genreUser  = pd.DataFrame(genreUser) # making genre a dataframe
 userMovies = user.join(genreUser) # join the user movie rating with genre
 userMovies
 
-
-# In[89]:
-
-
 # creating a weighted genre matrix by multiplying the ratings with the genre. Each row in the genre matrix is multiplied
-# by the corresponding row of the rating. 
+# by the corresponding col of the rating. 
 weightedGenre = np.array(userMovies.iloc[:,[1]]) * np.array(userMovies.iloc[:,2:])
 
 view = pd.DataFrame(weightedGenre, columns=['Romance','Action', 'Comedy','Sci-fi']) # creating view of weightedGenre matrix
 view
 
 
-# In[90]:
-
-
-#normalizing the weightedGenre matrix by adding accross columns and dividing by the sum of the entire matrix
+#normalize the weightedGenre matrix by adding accross columns and dividing by the sum of the entire matrix
 normalizedWeightedGenre = np.sum(weightedGenre, axis=0)/ np.sum(np.sum(weightedGenre))
 
 #We see that our user loves action(0.353) movies the most
